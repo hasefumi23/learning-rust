@@ -8,6 +8,15 @@ impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
     }
+
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        if (self.height > other.height && self.width > other.width) ||
+            (self.height > other.width && self.width > other.height) {
+            true
+        } else {
+            false
+        }
+    }
 }
 
 fn main() {
