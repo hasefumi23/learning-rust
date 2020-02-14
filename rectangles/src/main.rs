@@ -20,10 +20,59 @@ impl Rectangle {
 }
 
 fn main() {
-    let rect1 = Rectangle { width: 30, height: 50 };
+    let some_u8_value = Some(3u8);
+    if let Some(3) = some_u8_value {
+        println!("three");
+    }
+}
 
-    println!(
-        "The area of the rectangle is {} square pixels.",
-        rect1.area()
-    );
+enum IpAddrKind {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+// let some_number = Some(5);
+// let some_string = Some("a string");
+// let absent_number: Option<i32> = None;
+
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(UsState),
+}
+
+fn value_in_cents(coin: Coin) -> u32 {
+    match coin {
+        Coin::Penny => {
+            println!("Lucky");
+            1
+        },
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter(state) => {
+            println!("State {:?}", state);
+            25
+        },
+    }
+}
+
+#[derive(Debug)]
+enum UsState {
+    Alabama,
+    Alaska,
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
 }
