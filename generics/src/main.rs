@@ -1,10 +1,20 @@
-fn main() {
-    let nubmer_list = vec![34, 50, 25, 100, 65];
-    let mut largest = nubmer_list[0];
-    for number in nubmer_list {
-        if number > largest {
-            largest = number;
+fn largest(list: &[i32]) -> i32 {
+    let mut largest = list[0];
+    for &item in list.iter() {
+        if item > largest {
+            largest = item;
         }
     }
-    println!("The is {}", largest);
+
+    largest
+}
+
+fn main() {
+    let nubmer_list = vec![34, 50, 25, 100, 65];
+    let result = largest(&nubmer_list);
+    println!("The is {}", result);
+
+    let nubmer_list = vec![34, 50, 25, 100, 65, 6000, 390];
+    let result = largest(&nubmer_list);
+    println!("The is {}", result);
 }
